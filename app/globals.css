@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap'); */
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #fdf7f7;
+  --foreground: #4a3a4a;
+  --card: #ffffff;
+  --card-foreground: #4a3a4a;
+  --popover: #ffffff;
+  --popover-foreground: #4a3a4a;
+  --primary: #e91e63;
+  --primary-foreground: #ffffff;
+  --secondary: #b19cd9;
+  --secondary-foreground: #ffffff;
+  --muted: #f5f1f7;
+  --muted-foreground: #7a6a7a;
+  --accent: #64b5f6;
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(233, 30, 99, 0.2);
+  --input: transparent;
+  --input-background: #f9f4f7;
+  --switch-background: #e91e63;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #e91e63;
+  --chart-1: #e91e63;
+  --chart-2: #b19cd9;
+  --chart-3: #64b5f6;
+  --chart-4: #f5a3b1;
+  --chart-5: #ce93d8;
+  --radius: 1rem;
+  --sidebar: #fdf7f7;
+  --sidebar-foreground: #4a3a4a;
+  --sidebar-primary: #e91e63;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f5f1f7;
+  --sidebar-accent-foreground: #4a3a4a;
+  --sidebar-border: rgba(233, 30, 99, 0.15);
+  --sidebar-ring: #e91e63;
+  
+  /* Typography sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  
+  /* Custom romantic colors - enhanced vibrancy */
+  --blush-pink: #f5a3b1;
+  --soft-pink: #e91e63;
+  --lavender: #b19cd9;
+  --baby-blue: #64b5f6;
+  --cream: #fef7f0;
+  --soft-purple: #ce93d8;
+}
+
+.dark {
+  --background: #2a1f2a;
+  --foreground: #f5e6f5;
+  --card: #2a1f2a;
+  --card-foreground: #f5e6f5;
+  --popover: #2a1f2a;
+  --popover-foreground: #f5e6f5;
+  --primary: #e91e63;
+  --primary-foreground: #ffffff;
+  --secondary: #4a3a5a;
+  --secondary-foreground: #f5e6f5;
+  --muted: #4a3a5a;
+  --muted-foreground: #b5a5b5;
+  --accent: #4a3a5a;
+  --accent-foreground: #f5e6f5;
+  --destructive: #d4183d;
+  --destructive-foreground: #f5e6f5;
+  --border: rgba(233, 30, 99, 0.15);
+  --input: #4a3a5a;
+  --ring: #e91e63;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom romantic colors for Tailwind */
+  --color-blush-pink: var(--blush-pink);
+  --color-soft-pink: var(--soft-pink);
+  --color-lavender: var(--lavender);
+  --color-baby-blue: var(--baby-blue);
+  --color-cream: var(--cream);
+  --color-soft-purple: var(--soft-purple);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Crimson Text', serif;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.6;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Custom utility classes */
+.handwriting {
+  font-family: 'Dancing Script', cursive;
+}
+
+.serif {
+  font-family: 'Crimson Text', serif;
+}
+
+/* Custom color utility classes for use in components */
+.text-blush-pink {
+  color: var(--blush-pink);
+}
+
+.text-soft-pink {
+  color: var(--soft-pink);
+}
+
+.text-lavender {
+  color: var(--lavender);
+}
+
+.text-baby-blue {
+  color: var(--baby-blue);
+}
+
+.text-cream {
+  color: var(--cream);
+}
+
+.text-soft-purple {
+  color: var(--soft-purple);
+}
+
+.bg-blush-pink {
+  background-color: var(--blush-pink);
+}
+
+.bg-soft-pink {
+  background-color: var(--soft-pink);
+}
+
+.bg-lavender {
+  background-color: var(--lavender);
+}
+
+.bg-baby-blue {
+  background-color: var(--baby-blue);
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.bg-soft-purple {
+  background-color: var(--soft-purple);
+}
+
+.border-blush-pink {
+  border-color: var(--blush-pink);
+}
+
+.border-soft-pink {
+  border-color: var(--soft-pink);
+}
+
+.border-lavender {
+  border-color: var(--lavender);
+}
+
+.border-baby-blue {
+  border-color: var(--baby-blue);
+}
+
+.border-cream {
+  border-color: var(--cream);
+}
+
+.border-soft-purple {
+  border-color: var(--soft-purple);
+}
+
+/* Enhanced gradient combinations for more vibrant effects */
+.bg-gradient-romantic {
+  background: linear-gradient(135deg, var(--soft-pink), var(--lavender));
+}
+
+.bg-gradient-dreamy {
+  background: linear-gradient(135deg, var(--blush-pink), var(--baby-blue));
+}
+
+.bg-gradient-sunset {
+  background: linear-gradient(135deg, var(--soft-pink), var(--soft-purple));
+}
+
+/* Custom animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1s ease-in-out infinite;
+}
