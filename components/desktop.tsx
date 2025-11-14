@@ -9,7 +9,7 @@ import { MemoriesApp } from './apps/memories-app';
 import { PhotosApp } from './apps/photos-app';
 import { TimerApp } from './apps/timer-app';
 import { PlaylistApp } from './apps/playlist-app';
-import { NaughtySecretsApp } from './apps/naughty-app';
+//import { NaughtySecretsApp } from './apps/naughty-app';
 
 export function Desktop() {
   const [activeApp, setActiveApp] = useState<string | null>(null);
@@ -58,13 +58,13 @@ export function Desktop() {
       color: 'from-baby-blue to-blush-pink',
       component: TimerApp,
     },
-    {
+  /*{
       id: 'naughty',
       name: 'Freaky Side',
       icon: Flame,
       color: 'from-red-500 to-pink-500',
       component: NaughtySecretsApp,
-    },
+    },*/
   ];
 
   const openApp = (appId: string) => {
